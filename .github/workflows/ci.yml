@@ -57,9 +57,6 @@ concurrency:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-  # CI installs dependencies explicitly. pnpm 11's automatic pre-run install
-  # races across parallel jobs and commands that share sticky dependency state.
-  PNPM_CONFIG_VERIFY_DEPS_BEFORE_RUN: "false"
 
 jobs:
   # Keep the canonical main queue quiet long enough for a follow-up push to

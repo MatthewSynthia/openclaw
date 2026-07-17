@@ -1880,12 +1880,6 @@ describe("ci workflow guards", () => {
     expect(workflow.jobs["pnpm-store-warmup"]["runs-on"]).toContain("blacksmith-4vcpu-ubuntu-2404");
   });
 
-  it("prevents CI jobs from auto-installing dependencies before commands", () => {
-    const workflow = readCiWorkflow();
-
-    expect(workflow.env.PNPM_CONFIG_VERIFY_DEPS_BEFORE_RUN).toBe("false");
-  });
-
   it("keeps sticky dependency snapshots on trusted Blacksmith Node shards", () => {
     const workflow = readCiWorkflow();
     const blacksmithJobs = Object.entries(workflow.jobs).filter(([, job]) => {
